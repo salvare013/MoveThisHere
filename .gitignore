@@ -1,0 +1,22 @@
+# VS Code
+.vscode/
+.agents/
+
+# Visual Studio
+.vs/
+*.sln.ide/
+bin/
+obj/
+*.user
+*.suo
+
+# Build output
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.pdb
+*.exe
+
+# OS files
+Thumbs.db
+.DS_Store
