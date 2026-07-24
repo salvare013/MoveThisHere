@@ -43,8 +43,8 @@ namespace MoveThisHere
             storage.showInUI = true;
             storage.allowItemRemoval = false;
             storage.showDescriptor = true;
-            storage.storageFilters = STORAGEFILTERS.NOT_EDIBLE_SOLIDS.Concat(STORAGEFILTERS.FOOD).Concat(STORAGEFILTERS.LIQUIDS).Concat(STORAGEFILTERS.GASES).ToList();
-            //allow everything in storage except critters
+            storage.storageFilters = STORAGEFILTERS.LIQUIDS.Concat(STORAGEFILTERS.GASES).ToList();
+            //only gases and liquids
             storage.storageFullMargin = 0f;//STORAGE.STORAGE_LOCKER_FILLED_MARGIN;
             storage.fetchCategory = Storage.FetchCategory.GeneralStorage;
             storage.showCapacityStatusItem = true;
