@@ -27,6 +27,9 @@ namespace MoveThisHere
         [Serialize]
         public bool willSpill = true;
 
+        [Serialize]
+        private bool useKilogramUnit = true;
+
         private Tag[] forbidden_tags;
 
         private const float GramsPerKilogram = 1000f;
@@ -38,10 +41,10 @@ namespace MoveThisHere
 
         public string SliderTitleKey => "Maximum Capacity";
 
-        public string SliderUnits => "g";
+        public string SliderUnits => useKilogramUnit ? "kg" : "g";
         public float GetSliderMax(int index)
         {
-            return totalMaxCapacity * GramsPerKilogram;
+            return useKilogramUnit ? totalMaxCapacity : totalMaxCapacity * GramsPerKilogram;
         }
 
         public float GetSliderMin(int index)
@@ -51,7 +54,7 @@ namespace MoveThisHere
 
         public float GetSliderValue(int index)
         {
-            return userMaxCapacity * GramsPerKilogram;
+            return useKilogramUnit ? userMaxCapacity : userMaxCapacity * GramsPerKilogram;
         }
 
         public string GetSliderTooltip(int index)
@@ -65,7 +68,7 @@ namespace MoveThisHere
         }
         public void SetSliderValue(float value, int index)
         {
-            float capacityKg = value / GramsPerKilogram;
+            float capacityKg = useKilogramUnit ? value : value / GramsPerKilogram;
             if (capacityKg != userMaxCapacity) //setslidervalue runs each time slider appears AND if changed - check if actually changed to avoid unncessary job interruptions
             {
                 if (capacityKg > 100f)
@@ -81,7 +84,7 @@ namespace MoveThisHere
         }
         public int SliderDecimalPlaces(int index)
         {
-            return 0;
+            return useKilogramUnit ? 2 : 0;
         }
 
 
@@ -174,6 +177,25 @@ namespace MoveThisHere
         {
             willSelfDestruct = !willSelfDestruct;
         }
+        private void ToggleUnit()
+        {
+            useKilogramUnit = !useKilogramUnit;
+            RefreshSliderScreen();
+        }
+
+        private void RefreshSliderScreen()
+        {
+            // Force the building details panel to refresh by re-selecting
+            if (SelectTool.Instance != null && SelectTool.Instance.selected != null)
+            {
+                KSelectable selectable = GetComponent<KSelectable>();
+                if (selectable != null && SelectTool.Instance.selected == selectable)
+                {
+                    SelectTool.Instance.Select(null, false);
+                    SelectTool.Instance.Select(selectable, false);
+                }
+            }
+        }
 
         protected override void OnCleanUp()
         {
@@ -195,6 +217,7 @@ namespace MoveThisHere
                     willSelfDestruct = component.willSelfDestruct;
                     willSpill = component.willSpill;
                     allowManualPumpingStationFetching = component.allowManualPumpingStationFetching;
+                    useKilogramUnit = component.useKilogramUnit;
                     forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[1] { GameTags.LiquidSource });
                     filteredStorage.SetForbiddenTags(forbidden_tags);
                     filteredStorage.FilterChanged();
@@ -222,6 +245,11 @@ namespace MoveThisHere
                 new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF, OnChangeWillSpill, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF_TOOLTIP) :
                 new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON, OnChangeWillSpill, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON_TOOLTIP));
             Game.Instance.userMenu.AddButton(base.gameObject, autoSpillButton);
+
+            KIconButtonMenu.ButtonInfo unitButton = (useKilogramUnit ?
+                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G, ToggleUnit, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G_TOOLTIP) :
+                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG, ToggleUnit, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG_TOOLTIP));
+            Game.Instance.userMenu.AddButton(base.gameObject, unitButton);
         }
 
         public void Sim1000ms(float dt)

@@ -41,6 +41,12 @@ namespace MoveThisHere
                     public static LocString AUTO_BOTTLE_ON_TOOLTIP = "If enabled, Duplicants will bottle liquids and gases to deliver to this hauling point";
                     public static LocString AUTO_BOTTLE_OFF = "Disable Auto-Bottle";
                     public static LocString AUTO_BOTTLE_OFF_TOOLTIP = "If disabled, Duplicants will no longer bottle liquids and gases to deliver to this hauling point";
+
+                    // Unit toggle
+                    public static LocString UNIT_KG = "kg";
+                    public static LocString UNIT_KG_TOOLTIP = "Switch the capacity slider unit to kilograms";
+                    public static LocString UNIT_G = "g";
+                    public static LocString UNIT_G_TOOLTIP = "Switch the capacity slider unit to grams";
                 }
             }
         }

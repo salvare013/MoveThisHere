@@ -96,6 +96,26 @@ msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE_TOOLTIP"
 msgid "Remove this hauling point and drop all items here"
 msgstr "拆除此搬运点并把搬运点内的所有物品放在地上"
 
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG"
+msgid "kg"
+msgstr "kg"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG_TOOLTIP
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG_TOOLTIP"
+msgid "Switch the capacity slider unit to kilograms"
+msgstr "将容量滑块单位切换为千克"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G"
+msgid "g"
+msgstr "g"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G_TOOLTIP
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G_TOOLTIP"
+msgid "Switch the capacity slider unit to grams"
+msgstr "将容量滑块单位切换为克"
+
 #. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC"
 msgid ""
