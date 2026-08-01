@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 
 - Updated project metadata and added MIT license file.
+- Added attribution to the original author [DoctorFeelGoodMD](https://github.com/DoctorFeelGoodMD) and the upstream [OxygenNotIncluded-Mods](https://github.com/DoctorFeelGoodMD/OxygenNotIncluded-Mods) repository.
 
 ## [1.0.0] - 2021
 

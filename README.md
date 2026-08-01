@@ -3,6 +3,9 @@
 **《缺氧》(Oxygen Not Included)** 模组，添加一个名为"搬运点 (Hauling Point)"的 1×1 建筑，专门用于集中搬运**气体和液体**。
 
 > **English**: A small *Oxygen Not Included* mod that adds a 1×1 "Hauling Point" building for relocating liquids and gases to a specific spot.
+>
+> 本模组基于 [DoctorFeelGoodMD/OxygenNotIncluded-Mods](https://github.com/DoctorFeelGoodMD/OxygenNotIncluded-Mods) 修改而来，原仓库采用 MIT 许可证。  
+> **Attribution**: This mod is based on [DoctorFeelGoodMD/OxygenNotIncluded-Mods](https://github.com/DoctorFeelGoodMD/OxygenNotIncluded-Mods), also under the MIT License.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
@@ -81,6 +84,11 @@ dotnet build MoveThisHere.csproj -c Release
 
 欢迎提交 issue 和 PR。请先阅读[贡献指南](./CONTRIBUTING.md)。
 
+## 致谢
+
+- 原作仓库：[DoctorFeelGoodMD/OxygenNotIncluded-Mods](https://github.com/DoctorFeelGoodMD/OxygenNotIncluded-Mods)（MIT 许可证）
+- 原作者：[DoctorFeelGoodMD](https://github.com/DoctorFeelGoodMD)
+
 ## 许可证
 
-本项目使用 [MIT 许可证](./LICENSE)。
+本项目使用 [MIT 许可证](./LICENSE)。详见 [NOTICE](./NOTICE)。

@@ -2,6 +2,8 @@
 
 感谢你对 MoveThisHere 感兴趣！本指南帮助你快速上手开发和提交改动。
 
+本项目最初基于 [DoctorFeelGoodMD/OxygenNotIncluded-Mods](https://github.com/DoctorFeelGoodMD/OxygenNotIncluded-Mods)（MIT 许可证）修改而来，感谢原作者的开源工作。
+
 ## 开发环境
 
 - **操作系统**：Windows（因为游戏和引用路径默认按 Windows 目录结构）
