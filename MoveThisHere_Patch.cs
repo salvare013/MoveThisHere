@@ -7,9 +7,15 @@ using static Localization;
 
 namespace MoveThisHere
 {
+    /// <summary>
+    /// Main mod entry point and Harmony patches for MoveThisHere.
+    /// </summary>
     public class MoveThisHere_Patch : UserMod2
     {
 
+        /// <summary>
+        /// Loads localization .po files and registers STRINGS with the game.
+        /// </summary>
         [HarmonyPatch(typeof(Localization), "Initialize")]
         public class Localization_Initialize_Patch
         {
@@ -42,6 +48,9 @@ namespace MoveThisHere
         }
         
 
+        /// <summary>
+        /// Adds the Hauling Point building to the Base > storage build menu.
+        /// </summary>
         [HarmonyPatch(typeof(GeneratedBuildings))]
         [HarmonyPatch(nameof(GeneratedBuildings.LoadGeneratedBuildings))]
         public static class GeneratedBuildings_LoadGeneratedBuildings_Patch
@@ -52,6 +61,9 @@ namespace MoveThisHere
             }
         }
 
+        /// <summary>
+        /// Hides the material selector in the build info panel because the hauling point costs no materials.
+        /// </summary>
         [HarmonyPatch(typeof(ProductInfoScreen))]
         [HarmonyPatch(nameof(ProductInfoScreen.SetMaterials))]
         public static class ProductInfoScreen_SetMaterials_Patch
@@ -65,6 +77,9 @@ namespace MoveThisHere
             }
         }
 
+        /// <summary>
+        /// Overrides the resource-remaining hover text to show "No resources required" for the hauling point.
+        /// </summary>
         [HarmonyPatch(typeof(ResourceRemainingDisplayScreen))]
         [HarmonyPatch(nameof(ResourceRemainingDisplayScreen.GetString))]
         public static class ResourceRemainingDisplayScreen_Patch
@@ -75,13 +90,16 @@ namespace MoveThisHere
                 {
                     if (BuildTool.Instance.GetComponent<BuildToolHoverTextCard>().currentDef.name == "HaulingPoint")
                     {
-                        __result = "No resources required";
+                        __result = STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.NO_RESOURCES_REQUIRED;
                     }
                 }
                 return __result;
             }
         }
 
+        /// <summary>
+        /// Forces the hauling point to be built from Diamond with no resource cost.
+        /// </summary>
         [HarmonyPatch(typeof(BuildingDef))]
         [HarmonyPatch(nameof(BuildingDef.Instantiate))]
         public static class BuildingDef_Instantiate_Patch
@@ -120,8 +138,18 @@ namespace MoveThisHere
         }
     }
 
+    /// <summary>
+    /// Helper utilities for registering building strings and build menu plans.
+    /// </summary>
     public static class Utils
     {
+        /// <summary>
+        /// Registers the name, description, and effect strings for a building.
+        /// </summary>
+        /// <param name="buildingId">The building ID (prefab name) to register strings for.</param>
+        /// <param name="name">The in-game display name.</param>
+        /// <param name="description">The short description shown in the build menu.</param>
+        /// <param name="effect">The longer effect description shown in the build menu.</param>
         public static void AddBuildingStrings(string buildingId, string name, string description, string effect)
         {
            Strings.Add($"STRINGS.BUILDINGS.PREFABS.{buildingId.ToUpperInvariant()}.NAME", global::STRINGS.UI.FormatAsLink(name, buildingId));
@@ -129,6 +157,13 @@ namespace MoveThisHere
            Strings.Add($"STRINGS.BUILDINGS.PREFABS.{buildingId.ToUpperInvariant()}.EFFECT", effect);
         }
 
+        /// <summary>
+        /// Adds a building to the given plan (build menu) category and subcategory.
+        /// </summary>
+        /// <param name="category">Top-level plan category, e.g. "Base".</param>
+        /// <param name="subcategory">Subcategory within the plan, e.g. "storage".</param>
+        /// <param name="idBuilding">Building ID to add.</param>
+        /// <param name="addAfter">Optional building ID to insert after.</param>
         public static void AddPlan(HashedString category, string subcategory, string idBuilding, string addAfter = null)
         {
             Debug.Log("Adding " + idBuilding + " to category " + category);

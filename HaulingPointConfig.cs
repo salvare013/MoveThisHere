@@ -4,10 +4,19 @@ using System.Linq;
 
 namespace MoveThisHere
 {
+    /// <summary>
+    /// Building configuration for the Hauling Point, a 1×1 temporary storage for liquids and gases.
+    /// </summary>
     public class HaulingPointConfig : IBuildingConfig
     {
+        /// <summary>
+        /// The in-game prefab/building ID for the Hauling Point.
+        /// </summary>
         public const string Id = "HaulingPoint";
 
+        /// <summary>
+        /// Defines the building's size, animation, placement rules, and invincibility flags.
+        /// </summary>
         public override BuildingDef CreateBuildingDef()
         {
             BuildingDef obj = BuildingTemplates.CreateBuildingDef(
@@ -35,6 +44,9 @@ namespace MoveThisHere
             return obj;
         }
 
+        /// <summary>
+        /// Sets up storage filters, the HaulingPoint behavior component, and replaces vanilla deconstruction.
+        /// </summary>
         public override void ConfigureBuildingTemplate(GameObject go, Tag prefab_tag)
         {
             SoundEventVolumeCache.instance.AddVolume("storagelocker_kanim", "StorageLocker_Hit_metallic_low", NOISE_POLLUTION.NOISY.TIER1);
@@ -59,6 +71,9 @@ namespace MoveThisHere
 
         }
 
+        /// <summary>
+        /// Finalizes the building prefab after configuration is complete.
+        /// </summary>
         public override void DoPostConfigureComplete(GameObject go)
         {
             go.AddOrGetDef<StorageController.Def>();

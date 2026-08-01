@@ -2,6 +2,14 @@
 
 **《缺氧》(Oxygen Not Included)** 模组，添加一个名为"搬运点 (Hauling Point)"的 1×1 建筑，专门用于集中搬运**气体和液体**。
 
+> **English**: A small *Oxygen Not Included* mod that adds a 1×1 "Hauling Point" building for relocating liquids and gases to a specific spot.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
+- [更新日志](./CHANGELOG.md)
+- [贡献指南](./CONTRIBUTING.md)
+- [许可证](./LICENSE)
+
 ---
 
 ## 功能
@@ -22,7 +30,6 @@
 ### 🎛️ 容量自定义滑块
 
 - 每个搬运点可独立设置容量
-- 精度精确到**克**
 - 默认最大容量 **20,000 kg（20吨）**
 - 超过 100 kg 时自动取整
 - 支持 **g / kg 单位一键切换**（右键菜单），千克模式下显示 2 位小数，克模式下为整数
@@ -68,6 +75,12 @@ dotnet build MoveThisHere.csproj -c Release
 - `locales/en.po` - 英文
 - `locales/zh.po` - 中文
 
+新增或修改 UI 文本时，请同时更新 `STRINGS.cs`、`locales/en.po` 和 `locales/zh.po`。详见[贡献指南](./CONTRIBUTING.md)。
+
+## 贡献
+
+欢迎提交 issue 和 PR。请先阅读[贡献指南](./CONTRIBUTING.md)。
+
 ## 许可证
 
-MIT
+本项目使用 [MIT 许可证](./LICENSE)。

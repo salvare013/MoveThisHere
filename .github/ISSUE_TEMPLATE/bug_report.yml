@@ -1,0 +1,79 @@
+name: Bug report
+description: Report a problem with the MoveThisHere mod
+title: "[Bug] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in the details below so we can reproduce and fix it.
+
+  - type: input
+    id: game_version
+    attributes:
+      label: Game version
+      description: Which version of Oxygen Not Included are you running?
+      placeholder: e.g. U55-669440
+    validations:
+      required: true
+
+  - type: dropdown
+    id: dlc
+    attributes:
+      label: DLC
+      description: Are you using any DLC?
+      options:
+        - None (vanilla)
+        - Spaced Out!
+        - Frosty Planet Pack
+        - Spaced Out! + Frosty Planet Pack
+        - Other / unsure
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: How can we make the bug happen?
+      placeholder: |
+        1. Place a Hauling Point
+        2. Set capacity to ...
+        3. Right-click and select ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Paste relevant snippets from the player.log or attach screenshots if helpful.
+      render: text
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues and this bug has not been reported yet.
+          required: true
+        - label: I am running the latest version of the mod.
+          required: false

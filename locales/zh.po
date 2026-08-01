@@ -21,8 +21,8 @@ msgstr "禁用自动装瓶"
 msgctxt ""
 "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_OFF_TOOLTIP"
 msgid ""
-"If disabled, Duplicants will no longer deliver bottled liquids/gases to this "
-"hauling point."
+"If disabled, Duplicants will no longer bottle liquids and gases to deliver "
+"to this hauling point"
 msgstr "若禁用，复制人将不再运送瓶装液体和气体到搬运点。"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON
@@ -34,8 +34,8 @@ msgstr "启用自动装瓶"
 msgctxt ""
 "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON_TOOLTIP"
 msgid ""
-"If enabled, Duplicants will deliver bottled liquids/gases to this hauling "
-"point."
+"If enabled, Duplicants will bottle liquids and gases to deliver to this "
+"hauling point"
 msgstr "若启用，复制人将运送瓶装液体和气体到搬运点。"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF
@@ -115,6 +115,21 @@ msgstr "g"
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G_TOOLTIP"
 msgid "Switch the capacity slider unit to grams"
 msgstr "将容量滑块单位切换为克"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TITLE
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TITLE"
+msgid "Maximum Capacity"
+msgstr "最大容量"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TOOLTIP
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TOOLTIP"
+msgid "Maximum mass to bring to this Hauling Point"
+msgstr "搬运点最多可容纳的质量"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.NO_RESOURCES_REQUIRED
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.NO_RESOURCES_REQUIRED"
+msgid "No resources required"
+msgstr "无需资源"
 
 #. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC"

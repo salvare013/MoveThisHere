@@ -2,6 +2,11 @@ using static STRINGS.UI;
 
 namespace MoveThisHere
 {
+    /// <summary>
+    /// Localization string constants used by the MoveThisHere mod.
+    /// These keys are registered with the game's localization system at runtime
+    /// and can be overridden by .po files in the locales/ directory.
+    /// </summary>
     public class STRINGS
     {
         public class BUILDINGS
@@ -47,6 +52,13 @@ namespace MoveThisHere
                     public static LocString UNIT_KG_TOOLTIP = "Switch the capacity slider unit to kilograms";
                     public static LocString UNIT_G = "g";
                     public static LocString UNIT_G_TOOLTIP = "Switch the capacity slider unit to grams";
+
+                    // Slider labels
+                    public static LocString SLIDER_TITLE = "Maximum Capacity";
+                    public static LocString SLIDER_TOOLTIP = "Maximum mass to bring to this Hauling Point";
+
+                    // Build hover text
+                    public static LocString NO_RESOURCES_REQUIRED = "No resources required";
                 }
             }
         }

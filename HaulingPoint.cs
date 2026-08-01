@@ -6,6 +6,10 @@ using STRINGS;
 
 namespace MoveThisHere
 {
+    /// <summary>
+    /// Core behavior for the Hauling Point building: custom capacity slider, user menu toggles,
+    /// copy-settings support, and auto-deconstruction when full.
+    /// </summary>
     public class HaulingPoint : KMonoBehaviour, ISim1000ms, ISingleSliderControl //, IUserControlledCapacity
     {
 #pragma warning disable CS0649
@@ -39,9 +43,9 @@ namespace MoveThisHere
         //this is a clumsy workaround to use a custom slider to hold user capacity, rather than default iusercontrolledcapacity which is null
         //all because I can't get IUserControlledCapacity to allow decimal values, and I know you nerds are gonna wanna store 35g or something
 
-        public string SliderTitleKey => "Maximum Capacity";
+        public string SliderTitleKey => STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TITLE;
 
-        public string SliderUnits => useKilogramUnit ? "kg" : "g";
+        public string SliderUnits => useKilogramUnit ? STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG : STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G;
         public float GetSliderMax(int index)
         {
             return useKilogramUnit ? totalMaxCapacity : totalMaxCapacity * GramsPerKilogram;
@@ -59,7 +63,7 @@ namespace MoveThisHere
 
         public string GetSliderTooltip(int index)
         {
-            return "Maximum mass to bring to this Hauling Point";//string.Format(Strings.Get(GetSliderTooltipKey(0)), userMaxCapacity);
+            return STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TOOLTIP;
         }
 
         public string GetSliderTooltipKey(int index)
@@ -266,6 +270,10 @@ namespace MoveThisHere
 
     }
 
+    /// <summary>
+    /// Replacement for the vanilla Deconstructable that removes the hauling point instantly
+    /// without dropping building materials and respects the Auto-Spill setting.
+    /// </summary>
     public class DeconstructableHaulingPoint : Workable
     {
 
@@ -352,6 +360,10 @@ namespace MoveThisHere
     }
 
 
+    /// <summary>
+    /// Fork of the vanilla FilteredStorage class with custom forbidden-tag handling
+    /// for the hauling point's auto-bottle behavior.
+    /// </summary>
     public class FilteredStorageHaulingPoint
     {
         //this class is basically a copy of filteredstorage with just a few changes necessary to make hauling points work properly

@@ -1,0 +1,52 @@
+name: Feature request
+description: Suggest an improvement or new feature for MoveThisHere
+title: "[Feature] "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing your idea. Please describe the feature and why it would be useful.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature description
+      description: What would you like the mod to do?
+      placeholder: Add a toggle to ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Use case / problem it solves
+      description: What gameplay problem does this solve? When would a player use it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Have you tried any workarounds?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contribute
+    attributes:
+      label: Would you like to contribute?
+      options:
+        - I might be able to help implement it
+        - No, just sharing the idea
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues and this feature has not been requested yet.
+          required: true
