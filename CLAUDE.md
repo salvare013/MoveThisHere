@@ -101,6 +101,10 @@ Three classes in one file:
 
 Issues are tracked as GitHub issues in `salvare013/MoveThisHere`. See `docs/agents/issue-tracker.md`.
 
+### Triage labels
+
+Default canonical labels: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
 ### Domain docs
 
 Single-context layout — one root `CONTEXT.md` and `docs/adr/`. See `docs/agents/domain.md`.
