@@ -94,3 +94,13 @@ Three classes in one file:
 - Building ID string: `"HaulingPoint"` (constant in `HaulingPointConfig.Id`)
 - Animated assets use Klei's `.bytes` format (built with Spriter or similar tools)
 - All user-facing strings use `LocString` with `FormatAsLink()` for in-game hyperlinks
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked as GitHub issues in `salvare013/MoveThisHere`. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Single-context layout — one root `CONTEXT.md` and `docs/adr/`. See `docs/agents/domain.md`.
