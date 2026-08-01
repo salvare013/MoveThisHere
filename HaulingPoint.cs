@@ -43,9 +43,9 @@ namespace MoveThisHere
         //this is a clumsy workaround to use a custom slider to hold user capacity, rather than default iusercontrolledcapacity which is null
         //all because I can't get IUserControlledCapacity to allow decimal values, and I know you nerds are gonna wanna store 35g or something
 
-        public string SliderTitleKey => STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TITLE;
+        public string SliderTitleKey => "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TITLE";
 
-        public string SliderUnits => useKilogramUnit ? STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG : STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G;
+        public string SliderUnits => (useKilogramUnit ? STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG : STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G).ToString();
         public float GetSliderMax(int index)
         {
             return useKilogramUnit ? totalMaxCapacity : totalMaxCapacity * GramsPerKilogram;
@@ -63,7 +63,7 @@ namespace MoveThisHere
 
         public string GetSliderTooltip(int index)
         {
-            return STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TOOLTIP;
+            return STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SLIDER_TOOLTIP.ToString();
         }
 
         public string GetSliderTooltipKey(int index)
@@ -251,8 +251,8 @@ namespace MoveThisHere
             Game.Instance.userMenu.AddButton(base.gameObject, autoSpillButton);
 
             KIconButtonMenu.ButtonInfo unitButton = (useKilogramUnit ?
-                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G, ToggleUnit, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G_TOOLTIP) :
-                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG, ToggleUnit, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG_TOOLTIP));
+                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G.ToString(), ToggleUnit, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_G_TOOLTIP.ToString()) :
+                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG.ToString(), ToggleUnit, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.UNIT_KG_TOOLTIP.ToString()));
             Game.Instance.userMenu.AddButton(base.gameObject, unitButton);
         }
 
